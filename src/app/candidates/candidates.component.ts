@@ -17,7 +17,7 @@ export class CandidatesComponent implements OnInit {
 
   addCats(amount: number) {
     this.catApiService.getCats(10).subscribe( (response: object[]) => {
-      response.forEach(catObject => this.catsQueue.push(catObject['url']));
+      response.forEach(catObject => this.catsQueue.unshift(catObject['url']));
       console.log(`Cats queue contains ${this.catsQueue.length} cats after being updated.`)
     })
   }
@@ -30,7 +30,7 @@ export class CandidatesComponent implements OnInit {
     document.getElementsByClassName('active')[0].classList.add(voteResult);
 
     setTimeout(() => {
-      this.catsQueue.shift();
+      this.catsQueue.splice(-1,1);
     }, 200)
 
   }
