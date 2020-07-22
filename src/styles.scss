@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Roboto;
+  color: #565462;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+body {
+  max-height: 100vh;
+  margin: 0px;
+}
+
+
+// remove default +/- buttons from input number
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  outline: none;
+}

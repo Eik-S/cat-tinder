@@ -1,0 +1,10 @@
+<div class="content">
+  <div class="welcome-message" *ngIf="!gameData">
+    <p>How many cats can you swipe in</p>
+    <input type="number" [(ngModel)]="playTime"><p> seconds?</p>
+    <button (click)="this.activityService.initNewGame(playTime)">Start</button>
+  </div>
+  <div class="summary" *ngIf="gameData">
+    
+  </div>
+</div>

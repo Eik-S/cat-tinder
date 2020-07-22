@@ -1,0 +1,33 @@
+.content {
+  .welcome-message {
+    font-size: 16px;
+    font-weigt: 500;
+    text-align: center;
+    margin-top: 60px;
+
+    input {
+      width: 60px;
+      text-align: center;
+      border: 4px solid #304e60;
+      padding: 6px;
+      font-size: 22px;
+      font-color: darkgrey;
+      -webkit-appearance: none;
+    }
+
+    button {
+      margin-top: 60px;
+      color: #84693b;
+      background-color: transparent;
+      border: 5px solid #84693b;
+      padding: 10px 15px;
+      font-size: 22px;
+      text-transform: uppercase;
+
+      &:active {
+        background-color: #84693b;
+        color: white;
+      }
+    }
+  }
+}

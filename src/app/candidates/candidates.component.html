@@ -1,0 +1,4 @@
+<div class="candidate-card" [ngClass]="{'active': i === 0}" *ngFor="let cat of catsQueue; index as i">
+  <img [src]="cat" [hidden]="i <= 0">
+</div>
+<app-navigation (voted)="shiftCat($event)"></app-navigation>
