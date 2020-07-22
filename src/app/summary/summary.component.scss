@@ -1,6 +1,6 @@
 .content {
   .welcome-message {
-    font-size: 16px;
+    font-size: 24px;
     font-weigt: 500;
     text-align: center;
     margin-top: 60px;
@@ -16,7 +16,7 @@
     }
 
     button {
-      margin-top: 60px;
+      margin-top: 20px;
       color: #84693b;
       background-color: transparent;
       border: 5px solid #84693b;
@@ -27,6 +27,34 @@
       &:active {
         background-color: #84693b;
         color: white;
+      }
+    }
+  }
+
+  .summary {
+    .headline {
+      text-align: center;
+      font-size: 36px;
+    }
+    .scores {
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 60px;
+
+      .score-tile {
+        text-align: center;
+        padding: 20px;
+
+        .score {
+          font-size: 30px;
+          margin: 0px;
+        }
+
+        .name {
+          font-size: 22px;
+        }
       }
     }
   }

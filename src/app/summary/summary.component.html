@@ -1,10 +1,30 @@
 <div class="content">
-  <div class="welcome-message" *ngIf="!gameData">
-    <p>How many cats can you swipe in</p>
-    <input type="number" [(ngModel)]="playTime"><p> seconds?</p>
-    <button (click)="this.activityService.initNewGame(playTime)">Start</button>
-  </div>
   <div class="summary" *ngIf="gameData">
-    
+    <p class="headline">That's Your Result</p>
+    <div class="scores">
+      <div class="score-tile">
+        <p class="score">{{gameData.likes}}</p>
+        <p class="name">Likes</p>
+      </div>
+
+      <div class="score-tile">
+        <p class="score">{{gameData.skipped}}</p>
+        <p class="name">Skipped</p>
+      </div>
+
+      <div class="score-tile">
+        <p class="score">{{gameData.dislikes}}</p>
+        <p class="name">Dislikes</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="welcome-message">
+    <p class="welcome" *ngIf="!gameData">How many cats can you swipe in</p>
+    <p class="retry" *ngIf="gameData">Let's try again for</p>
+
+    <input type="number" [(ngModel)]="playTime"><p> seconds?</p>
+
+    <button (click)="this.startNewGame()">Start</button>
   </div>
 </div>

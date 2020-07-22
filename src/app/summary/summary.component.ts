@@ -10,12 +10,16 @@ import {ActivityService} from "../services/activity.service";
 export class SummaryComponent implements OnInit {
 
   gameData: GameData;
-  playTime: number = 6000;
+  playTime: number = 60;
 
   constructor( private activityService: ActivityService) {
     this.activityService.gameData.subscribe( gameData => {
       this.gameData = gameData;
     })
+  }
+
+  startNewGame() {
+    this.activityService.initNewGame(this.playTime);
   }
 
   ngOnInit(): void {

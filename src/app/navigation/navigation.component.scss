@@ -1,7 +1,10 @@
 .navigation-panel {
   position: absolute;
   bottom: 60px;
-  left: 10vw;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 80vw;
   max-width: 540px;
   text-align: center;

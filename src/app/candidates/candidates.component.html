@@ -1,4 +1,10 @@
-<div class="candidate-card" [ngClass]="{'active': i === catsQueue.length - 1}" *ngFor="let cat of catsQueue; index as i">
-  <img [src]="cat" [ngStyle]="{'z-index': i}">
+<div class="candidate-canvas">
+  <div class="candidate-card" [ngClass]="{'active': i === catsQueue.length - 1}"
+       *ngFor="let cat of catsQueue; index as i">
+
+    <img [src]="cat" [ngStyle]="{'z-index': i}">
+
+  </div>
+
+  <app-navigation (voted)="shiftCat($event)"></app-navigation>
 </div>
-<app-navigation (voted)="shiftCat($event)"></app-navigation>
