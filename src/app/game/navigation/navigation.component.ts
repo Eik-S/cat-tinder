@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {ActivityService} from "../../services/activity.service";
 import {GameData} from "../../game-data";
 
@@ -9,6 +9,20 @@ import {GameData} from "../../game-data";
 })
 export class NavigationComponent implements OnInit {
   @Output() voted = new EventEmitter<string>();
+
+  // allows the arrowkeys to control the game
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === "ArrowLeft") {
+      this.dislikeTheCat();
+    }
+    if (event.key === "ArrowRight") {
+      this.likeTheCat();
+    }
+    if (event.key === "ArrowUp") {
+      this.skipTheCat();
+    }
+  }
 
   gameData: GameData;
   transitioning: boolean;

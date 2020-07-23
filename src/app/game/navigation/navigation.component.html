@@ -1,4 +1,7 @@
-<div class="navigation-panel">
+<div class="navigation-panel"
+(keydown.arrowLeft)="dislikeTheCat()"
+(keydown.arrowRight)="likeTheCat()"
+(keydown.arrowUp)="skipTheCat()">
   <button class="dislike" (click)="dislikeTheCat()">
     <i class="fa fa-times" aria-hidden="true"></i>
   </button>
