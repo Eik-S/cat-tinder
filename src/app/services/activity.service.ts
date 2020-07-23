@@ -27,12 +27,13 @@ export class ActivityService {
     this.gameRunning.next(true);
     this.timeLeft.next(roundTime);
 
-    setInterval(() => {
+    let timer = setInterval(() => {
       this.timeLeft.next(this.timeLeft.getValue() - 1);
     }, 1000);
 
     // starts the timer and stops the game after the given time
     setTimeout(() => {
+      clearInterval(timer);
       this.gameRunning.next(false);
     }, roundTime * 1000);
   }
