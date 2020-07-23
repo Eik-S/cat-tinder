@@ -19,9 +19,9 @@
     </div>
   </div>
 
-  <div class="welcome-message">
-    <p class="welcome" *ngIf="!gameData">How many cats can you swipe in</p>
-    <p class="retry" *ngIf="gameData">Let's try again for</p>
+  <div class="welcome-message" [ngClass]="{'retry-message': gameData}">
+    <p *ngIf="!gameData">How many cats can you swipe in</p>
+    <p *ngIf="gameData">Let's try again for</p>
 
     <input type="number" [(ngModel)]="playTime"><p> seconds?</p>
 
