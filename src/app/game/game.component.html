@@ -1,4 +1,4 @@
-<div class="loading-spinner-cloak" *ngIf="cloaked"><i class="fa fa-spinner" aria-hidden="true"></i></div>
+<div class="loading-spinner-cloak" *ngIf="cloaked"><img src="./../../assets/icons/load.svg" alt="loading spinner icon"></div>
 
 <app-timer></app-timer>
 <div class="candidate-card" [ngClass]="{'active': i === catsQueue.length - 1, 'hidden': cloaked}"

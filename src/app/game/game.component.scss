@@ -2,7 +2,9 @@
   text-align: center;
   line-height: 100vh;
   font-size: 70px;
-  i {
+  img {
+    width: 70px;
+    height: 70px;
     animation: spinning 1.2s infinite;
   }
 }
