@@ -3,11 +3,11 @@ import {CatApiService} from "../services/cat-api.service";
 import {timeout} from "rxjs/operators";
 
 @Component({
-  selector: 'app-candidates',
-  templateUrl: './candidates.component.html',
-  styleUrls: ['./candidates.component.scss']
+  selector: 'app-game',
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.scss']
 })
-export class CandidatesComponent implements OnInit {
+export class GameComponent implements OnInit {
 
   catsQueue: string[] = [];
 

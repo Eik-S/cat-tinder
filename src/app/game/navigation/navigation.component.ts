@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ActivityService} from "../services/activity.service";
-import {GameData} from "../game-data";
+import {ActivityService} from "../../services/activity.service";
+import {GameData} from "../../game-data";
 
 @Component({
   selector: 'app-navigation',
