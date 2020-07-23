@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -10,7 +10,8 @@ export class CatApiService {
     responseType: 'json'
   };
 
-  constructor(private http: HttpClient) {
+  constructor(
+    @Inject(HttpClient) private http: HttpClient) {
   }
 
   getCats(amount: number): Observable<object> {
