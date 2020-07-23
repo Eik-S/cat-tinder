@@ -18,6 +18,7 @@ import { TimerComponent } from './game/timer/timer.component';
     SummaryComponent,
     WelcomeComponent,
     TimerComponent,
+    TimerComponent,
   ],
   imports: [
     BrowserModule,

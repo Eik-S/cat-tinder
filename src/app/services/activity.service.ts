@@ -11,6 +11,7 @@ export class ActivityService {
 
   gameRunning = new BehaviorSubject(false);
   gameData = new BehaviorSubject<GameData>(undefined);
+  timeLeft = new BehaviorSubject<number>(undefined);
 
   constructor() {
   }
@@ -24,6 +25,11 @@ export class ActivityService {
     });
 
     this.gameRunning.next(true);
+    this.timeLeft.next(roundTime);
+
+    setInterval(() => {
+      this.timeLeft.next(this.timeLeft.getValue() - 1);
+    }, 1000);
 
     // starts the timer and stops the game after the given time
     setTimeout(() => {
