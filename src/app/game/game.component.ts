@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import {CatApiService} from '../services/cat-api.service';
 
 @Component({
@@ -11,7 +11,9 @@ export class GameComponent {
   catsQueue: string[] = [];
   cloaked = true;
 
-  constructor( private catApiService: CatApiService, private ref: ChangeDetectorRef) {
+  constructor(
+    @Inject(CatApiService) private catApiService: CatApiService
+  ) {
     this.addCats(10);
   }
 

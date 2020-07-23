@@ -3,9 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { GameData } from '../game-data';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class ActivityService {
 

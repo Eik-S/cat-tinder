@@ -8,8 +8,14 @@ import { LandingComponent } from './landing/landing.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { TimerComponent } from './game/timer/timer.component';
+import {ActivityService} from "./services/activity.service";
+import {CatApiService} from "./services/cat-api.service";
 
 @NgModule({
+  providers: [
+    ActivityService,
+    CatApiService
+  ],
   declarations: [
     AppComponent,
     GameComponent,
@@ -23,7 +29,6 @@ import { TimerComponent } from './game/timer/timer.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

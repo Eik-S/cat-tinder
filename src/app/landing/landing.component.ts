@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Inject, ViewChild} from '@angular/core';
 import {GameData} from '../game-data';
 import {ActivityService} from '../services/activity.service';
 
@@ -13,7 +13,9 @@ export class LandingComponent {
   gameData: GameData;
   playTime = 60;
 
-  constructor( private activityService: ActivityService) {
+  constructor(
+    @Inject(ActivityService) private activityService: ActivityService
+  ) {
     this.activityService.gameData.subscribe( gameData => {
       this.gameData = gameData;
     });

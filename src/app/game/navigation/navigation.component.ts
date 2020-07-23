@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Inject, Output} from '@angular/core';
 import {ActivityService} from '../../services/activity.service';
 import {GameData} from '../../game-data';
 
@@ -9,7 +9,9 @@ import {GameData} from '../../game-data';
 })
 export class NavigationComponent {
 
-  constructor( private activityService: ActivityService) {
+  constructor(
+    @Inject(ActivityService) private activityService: ActivityService
+  ) {
     this.activityService.gameData.subscribe( gameData => {
       this.gameData = gameData;
     });

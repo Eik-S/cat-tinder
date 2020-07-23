@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 
 import { ActivityService } from './services/activity.service';
 
@@ -12,7 +12,9 @@ export class AppComponent {
 
   gameRunning: boolean;
 
-  constructor( private activityService: ActivityService) {
+  constructor(
+    @Inject(ActivityService) private activityService: ActivityService
+  ) {
     this.activityService.gameRunning.subscribe((gameRunning) => {
       this.gameRunning = gameRunning;
     });

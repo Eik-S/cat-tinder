@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {ActivityService} from '../../services/activity.service';
 
 @Component({
@@ -10,7 +10,9 @@ export class TimerComponent {
 
   timeLeft: number;
 
-  constructor( private activityService: ActivityService) {
+  constructor(
+    @Inject(ActivityService) private activityService: ActivityService
+  ) {
     this.activityService.timeLeft.subscribe( timeLeft => this.timeLeft = timeLeft);
    }
 }
