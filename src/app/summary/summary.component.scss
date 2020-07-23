@@ -39,6 +39,20 @@
         background-color: #84693b;
         color: white;
       }
+      &:disabled {
+        color: lightgrey;
+        border-color: lightgrey;
+      }
+    }
+
+    .error-msg {
+      height: 20px;
+
+      p {
+        font-size: 14px;
+        color: darkred;
+        margin: 0px;
+      }
     }
   }
 

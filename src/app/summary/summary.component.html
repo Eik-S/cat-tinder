@@ -1,6 +1,13 @@
 <div class="content">
   <div class="summary" *ngIf="gameData">
-    <p class="headline">That's Your Result</p>
+    <p class="headline">Your Result</p>
+    <div class="scores">
+      <div class="score-tile">
+        <p class="score">{{gameData.likes + gameData.skipped + gameData.dislikes}}</p>
+        <p class="name">Cats</p>
+      </div>
+    </div>
+
     <div class="scores">
       <div class="score-tile">
         <p class="score">{{gameData.likes}}</p>
@@ -21,10 +28,22 @@
 
   <div class="welcome-message" [ngClass]="{'retry-message': gameData}">
     <p *ngIf="!gameData">How many cats can you swipe in</p>
+
     <p *ngIf="gameData">Let's try again for</p>
 
-    <input type="number" [(ngModel)]="playTime"><p> seconds?</p>
+    <input (keyup.enter)=" timeInput.valid && startNewGame()"
+           #timeInput="ngModel" required min="1" max="1000" type="number"
+           [(ngModel)]="playTime" (keyup)="validateInput()">
 
-    <button (click)="this.startNewGame()">Start</button>
+    <p> seconds?</p>
+
+    <div class="error-msg">
+      <p *ngIf="timeInput.errors?.required">Please enter a duration in numbers</p>
+      <p *ngIf="timeInput.errors?.negative">You had been playing?</p>
+      <p *ngIf="timeInput.errors?.zero">Let's start with 1 second...</p>
+      <p *ngIf="timeInput.errors?.max">Even cats get boring after that long.</p>
+    </div>
+
+    <button [disabled]="timeInput.invalid" (click)="startNewGame()">Start</button>
   </div>
 </div>

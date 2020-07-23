@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {GameData} from "../game-data";
 import {ActivityService} from "../services/activity.service";
 
@@ -8,6 +8,7 @@ import {ActivityService} from "../services/activity.service";
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
+  @ViewChild('timeInput') timeInputField;
 
   gameData: GameData;
   playTime: number = 60;
@@ -21,6 +22,19 @@ export class SummaryComponent implements OnInit {
   startNewGame() {
     this.activityService.initNewGame(this.playTime);
   }
+
+  validateInput() {
+    if (this.playTime && this.playTime < 0) {
+      this.timeInputField.control.setErrors({'negative': true});
+    }
+    if (this.playTime === 0) {
+      this.timeInputField.control.setErrors({'zero': true});
+    }
+    if (this.playTime >= 1000) {
+      this.timeInputField.control.setErrors({'max': true});
+    }
+  }
+
 
   ngOnInit(): void {
   }
