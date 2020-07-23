@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {CatApiService} from "../services/cat-api.service";
+import {CatApiService} from '../services/cat-api.service';
 
 @Component({
   selector: 'app-game',
@@ -9,19 +9,19 @@ import {CatApiService} from "../services/cat-api.service";
 export class GameComponent {
 
   catsQueue: string[] = [];
-  cloaked: boolean = true;
+  cloaked = true;
 
   constructor( private catApiService: CatApiService, private ref: ChangeDetectorRef) {
     this.addCats(10);
   }
 
-  addCats(amount: number) {
+  addCats(amount: number): void {
     this.catApiService.getCats(10).subscribe( (response: object[]) => {
       response.forEach(catObject => this.catsQueue.unshift(catObject['url']));
-    })
+    });
   }
 
-  shiftCatsQueue(voteResult: string) {
+  shiftCatsQueue(voteResult: string): void {
     if (this.catsQueue.length < 5) {
       this.addCats(10);
     }
@@ -29,12 +29,12 @@ export class GameComponent {
     document.getElementsByClassName('active')[0].classList.add(voteResult);
 
     setTimeout(() => {
-      this.catsQueue.splice(-1,1);
-    }, 200)
+      this.catsQueue.splice(-1, 1);
+    }, 200);
 
   }
 
-  onImageLoad() {
+  onImageLoad(): void {
     this.cloaked = false;
   }
 }
