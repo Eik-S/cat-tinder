@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { NavigationComponent } from './game/navigation/navigation.component';
-import { SummaryComponent } from './summary/summary.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { LandingComponent } from './landing/landing.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { TimerComponent } from './game/timer/timer.component';
@@ -15,8 +14,7 @@ import { TimerComponent } from './game/timer/timer.component';
     AppComponent,
     GameComponent,
     NavigationComponent,
-    SummaryComponent,
-    WelcomeComponent,
+    LandingComponent,
     TimerComponent,
     TimerComponent,
   ],

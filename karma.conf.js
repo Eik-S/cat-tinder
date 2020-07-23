@@ -17,7 +17,7 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/cat-tinder'),
-      reports: ['html', 'lcovonly', 'text-summary'],
+      reports: ['html', 'lcovonly', 'text-landing'],
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],

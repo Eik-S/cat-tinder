@@ -1,13 +1,10 @@
-<div class="candidate-canvas">
-  <div class="loading-spinner-cloak" *ngIf="cloaked"><i class="fa fa-spinner" aria-hidden="true"></i></div>
+<div class="loading-spinner-cloak" *ngIf="cloaked"><i class="fa fa-spinner" aria-hidden="true"></i></div>
 
-  <app-timer></app-timer>
-  <div class="candidate-card" [ngClass]="{'active': i === catsQueue.length - 1, 'hidden': cloaked}"
-       *ngFor="let cat of catsQueue; index as i">
+<app-timer></app-timer>
+<div class="candidate-card" [ngClass]="{'active': i === catsQueue.length - 1, 'hidden': cloaked}"
+     *ngFor="let cat of catsQueue; index as i">
 
-    <img [src]="cat" [ngStyle]="{'z-index': i}"
-         (load)=" i === catsQueue.length - 1 && onImageLoad()">
-  </div>
-  <app-navigation (voted)="shiftCat($event)"></app-navigation>
-
+  <img [src]="cat" [ngStyle]="{'z-index': i}"
+       (load)=" i === catsQueue.length - 1 && onImageLoad()">
 </div>
+<app-navigation (voted)="shiftCatsQueue($event)"></app-navigation>

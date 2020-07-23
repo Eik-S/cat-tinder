@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, ReplaySubject} from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
 import { GameData } from "../game-data";
 
@@ -17,7 +17,6 @@ export class ActivityService {
   }
 
   initNewGame(roundTime: number) {
-    console.log("new game initialized");
     this.gameData = new BehaviorSubject({
       likes: 0,
       dislikes: 0,
@@ -27,11 +26,10 @@ export class ActivityService {
     this.gameRunning.next(true);
     this.timeLeft.next(roundTime);
 
+    // starts the timer and stops the game after the given time
     let timer = setInterval(() => {
       this.timeLeft.next(this.timeLeft.getValue() - 1);
     }, 1000);
-
-    // starts the timer and stops the game after the given time
     setTimeout(() => {
       clearInterval(timer);
       this.gameRunning.next(false);
