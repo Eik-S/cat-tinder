@@ -10,6 +10,7 @@ import {timeout} from "rxjs/operators";
 export class GameComponent implements OnInit {
 
   catsQueue: string[] = [];
+  cloaked: boolean = true;
 
   constructor( private catApiService: CatApiService, private ref: ChangeDetectorRef) {
     this.addCats(10);
@@ -33,6 +34,11 @@ export class GameComponent implements OnInit {
       this.catsQueue.splice(-1,1);
     }, 200)
 
+  }
+
+  onImageLoad() {
+    console.log("onImageLoad emitted");
+    this.cloaked = false;
   }
 
   ngOnInit(): void {
